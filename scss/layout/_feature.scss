@@ -1,0 +1,73 @@
+@use '../utils' as *;
+
+//=============== 28. FEATURE CSS START HERE ================
+
+.bd-feature {
+
+    &__list {
+        &-item {
+            text-align: center;
+
+            i {
+                line-height: 68px;
+                text-align: center;
+                border-radius: 60px;
+                display: inline-block;
+                font-size: 60px;
+                margin-bottom: 10px;
+
+                @media #{$lg,$md,$sm,$xs} {
+                    font-size: 50px;
+                }
+            }
+
+            p {
+                font-size: 24px;
+                line-height: 40px;
+                text-transform: capitalize;
+
+                @media #{$lg,$md,$sm,$xs} {
+                    font-size: 20px;
+                }
+            }
+
+            &.is-white {
+                i {
+                    color: var(--bd-common-white);
+                }
+
+                p {
+                    color: var(--bd-common-white);
+                }
+            }
+        }
+
+        &-content {
+            display: flex;
+            justify-content: space-between;
+            gap: 0 50px;
+
+            @media #{$lg} {
+                gap: 0 20px;
+            }
+
+            @media #{$md} {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            @media #{$sm} {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            @media #{$xs} {
+                display: grid;
+                grid-template-columns: repeat(1, 1fr);
+            }
+        }
+    }
+}
+
+
+// FEATURE CSS END HERE

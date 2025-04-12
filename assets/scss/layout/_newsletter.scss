@@ -1,0 +1,160 @@
+@use '../utils' as *;
+
+//============== 19. NEWSLETTER CSS START HERE ============== 
+
+.bd-newsletter {
+    $self: &;
+    position: relative;
+
+    &__bg {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        top: 0;
+        left: 0;
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        z-index: -1;
+
+        &::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0;
+            background: var(--bd-common-black);
+            opacity: .3;
+            height: 100%;
+            width: 100%;
+        }
+    }
+
+    &__content {
+        .bd-section__title {
+            padding: 0 10px;
+        }
+    }
+
+    &__input {
+        height: 100%;
+
+        input {
+            width: 100%;
+            padding-inline-start: 100px;
+            padding-inline-end: 260px;
+            font-weight: 400;
+            font-size: 24px;
+            line-height: 90px;
+            text-transform: capitalize;
+            height: 90px;
+
+            @media #{$md} {
+                padding-inline-start: 70px;
+                padding-inline-end: 220px;
+            }
+
+            @media #{$sm} {
+                padding-inline-start: 70px;
+                padding-inline-end: 20px;
+                height: 80px;
+            }
+
+            @media #{$xs} {
+                padding-inline-start: 55px;
+                padding-inline-end: 20px;
+                height: 80px;
+            }
+
+            &::placeholder {
+                color: #A6A6A6;
+                font-size: 24px;
+
+                @media #{$xs} {
+                    font-size: 22px;
+                }
+            }
+        }
+
+        &-wrap {
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto;
+
+            @media #{$md,$sm,$xs} {
+                margin: 0 10px;
+            }
+        }
+
+        &-icon {
+            position: absolute;
+            inset-inline-start: 35px;
+            top: 52%;
+            transform: translateY(-50%);
+
+            @media #{$md} {
+                inset-inline-start: 22px;
+            }
+
+            @media #{$sm} {
+                inset-inline-start: 20px;
+                top: 26%;
+            }
+
+            @media #{$xs} {
+                inset-inline-start: 15px;
+                top: 26%;
+            }
+
+            i {
+                font-size: 35px;
+                color: #D9D9D9;
+
+                @media #{$md, $sm, $xs} {
+                    font-size: 30px;
+                }
+            }
+        }
+    }
+
+    &__submit {
+        position: absolute;
+        inset-inline-end: 0;
+        height: 100%;
+        padding: 0 35px;
+        top: 0;
+        background-color: var(--bd-theme-1);
+        font-weight: 500;
+        font-size: 18px;
+        line-height: 28px;
+        text-transform: capitalize;
+        color: var(--bd-common-black);
+        display: flex;
+        align-items: center;
+        gap: 25px;
+
+        i {
+            @include transition(.3s);
+        }
+
+        @media #{$md} {
+            padding: 0 22px;
+        }
+
+        @media #{$sm,$xs} {
+            position: static;
+            height: 70px;
+            text-align: center;
+            margin-top: 15px;
+        }
+
+        &:hover {
+            color: var(--bd-common-white);
+
+            i {
+                transform: rotate(50deg);
+            }
+        }
+    }
+}
+
+// NEWSLETTER CSS END HERE  

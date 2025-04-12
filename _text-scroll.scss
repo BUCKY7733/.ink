@@ -1,0 +1,52 @@
+@use '../utils' as *;
+
+//=============== 24. TEXT SCROLL CSS START HERE ================
+
+.bd-text-scroll-line {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.bd-text-scroll-line__heading {
+    font-size: 120px;
+    font-weight: 400;
+    line-height: 1.2;
+    font-family: var(--bd-ff-heading);
+    text-transform: capitalize;
+    white-space: nowrap;
+    margin-bottom: 0;
+
+    @media #{$xxl} {
+        font-size: 80px;
+    }
+
+    @media #{$xl} {
+        font-size: 70px;
+    }
+
+    @media #{$lg} {
+        font-size: 65px;
+    }
+
+    @media #{$md} {
+        font-size: 50px;
+    }
+
+    @media #{$sm,$xs} {
+        font-size: 40px;
+    }
+
+}
+
+.bd-text-scroll-wrapper {
+    -webkit-transition-timing-function: linear;
+    transition-timing-function: linear;
+}
+
+
+.text__scroll {
+    .swiper-slide {
+        width: auto;
+    }
+}

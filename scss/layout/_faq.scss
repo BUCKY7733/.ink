@@ -1,0 +1,151 @@
+@use '../utils' as *;
+
+
+//===============16. FAQ CSS START HERE ================
+
+.bd-faq {
+    $self: &;
+
+    &-2 {
+        .accordion {
+            &-item {
+                background-color: transparent;
+            }
+
+            &-body {
+                background-color: transparent;
+            }
+
+            &-button {
+                background-color: transparent;
+            }
+        }
+    }
+
+    &-3 {
+        border: 1px solid var(--bd-grey-1);
+        padding: 0 30px;
+
+        .accordion {
+            .accordion-item {
+                &:last-child {
+                    border: 0;
+                }
+            }
+        }
+    }
+
+    &__bg {
+        position: absolute;
+        right: 0;
+        left: 0;
+        bottom: 0;
+        top: 0;
+        height: 100%;
+        width: 100%;
+        background-size: cover;
+        background-repeat: no-repeat;
+        z-index: -1;
+
+        &::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0;
+            background: #F8F5F0;
+            opacity: .9;
+            height: 100%;
+            width: 100%;
+
+        }
+    }
+
+    .accordion {
+        &-item {
+            border: 0;
+            border-bottom: 1px solid var(--bd-grey-1);
+        }
+
+        &-body {
+            padding: 0;
+            color: var(--bd-common-black);
+        }
+
+        &-button {
+            font-size: 24px;
+            line-height: 40px;
+            color: var(--bd-common-black);
+            padding: 30px 0 28px;
+            text-transform: capitalize;
+            padding-inline-end: 30px;
+
+            @media #{$lg} {
+                font-size: 22px;
+            }
+
+            @media #{$xxs} {
+                font-size: 20px;
+            }
+
+            &:not(.collapsed) {
+                color: var(--bd-grey-3);
+                background-color: transparent;
+                box-shadow: none;
+
+                &::after {
+                    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23212529'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+                }
+            }
+
+            &::after {
+                position: absolute;
+                inset-inline-end: 0;
+                top: 40px;
+            }
+
+            &:focus {
+                z-index: 3;
+                border-color: inherit;
+                outline: none;
+                box-shadow: none
+            }
+        }
+    }
+}
+
+.bd-faq-title {
+    font-size: 36px;
+    text-transform: capitalize;
+
+    @media #{$xs} {
+        font-size: 30px;
+    }
+}
+
+.ryl-accordion-space {
+    .row {
+        div {
+            &:first-child {
+                .accordion-item {
+                    margin-inline-end: 15px;
+
+                    @media #{$md, $sm, $xs} {
+                        margin-inline-end: 0;
+                    }
+                }
+            }
+
+            &:last-child {
+                .accordion-item {
+                    margin-inline-start: 15px;
+
+                    @media #{$md, $sm, $xs} {
+                        margin-inline-start: 0;
+                    }
+                }
+            }
+        }
+    }
+}
+
+// FAQ CSS END HERE

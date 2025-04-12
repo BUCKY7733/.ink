@@ -1,0 +1,112 @@
+@font-face {
+    font-family: "flaticon_royel";
+    src: url("../fonts/flaticon_royel.ttf?6a84a3bb1e04c1e7f840bd4df1115600") format("truetype"),
+        url("../fonts/flaticon_royel.woff?6a84a3bb1e04c1e7f840bd4df1115600") format("woff"),
+        url("../fonts/flaticon_royel.woff2?6a84a3bb1e04c1e7f840bd4df1115600") format("woff2"),
+        url("../fonts/flaticon_royel.eot?6a84a3bb1e04c1e7f840bd4df1115600#iefix") format("embedded-opentype"),
+        url("../fonts/flaticon_royel.svg?6a84a3bb1e04c1e7f840bd4df1115600#flaticon_royel") format("svg");
+}
+
+i[class^="flaticon-"]:before,
+i[class*=" flaticon-"]:before {
+    font-family: flaticon_royel !important;
+    font-style: normal;
+    font-weight: normal !important;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.flaticon-down-arrow:before {
+    content: "\f101";
+}
+
+.flaticon-phone-call:before {
+    content: "\f102";
+}
+
+.flaticon-check-circle:before {
+    content: "\f103";
+}
+
+.flaticon-taxi:before {
+    content: "\f104";
+}
+
+.flaticon-garage:before {
+    content: "\f105";
+}
+
+.flaticon-swimming-pool:before {
+    content: "\f106";
+}
+
+.flaticon-wifi-router:before {
+    content: "\f107";
+}
+
+.flaticon-breakfast:before {
+    content: "\f108";
+}
+
+.flaticon-bar-counter:before {
+    content: "\f109";
+}
+
+.flaticon-add:before {
+    content: "\f10a";
+}
+
+.flaticon-minus:before {
+    content: "\f10b";
+}
+
+.flaticon-value:before {
+    content: "\f10c";
+}
+
+.flaticon-mail:before {
+    content: "\f10d";
+}
+
+.flaticon-call:before {
+    content: "\f10e";
+}
+
+.flaticon-quote:before {
+    content: "\f10f";
+}
+
+.flaticon-price-tag:before {
+    content: "\f110";
+}
+
+.flaticon-rotation:before {
+    content: "\f111";
+}
+
+.flaticon-group:before {
+    content: "\f112";
+}
+
+.flaticon-open-door:before {
+    content: "\f113";
+}
+
+.flaticon-plans:before {
+    content: "\f114";
+}
+
+.flaticon-calendar:before {
+    content: "\f115";
+}
+
+.flaticon-calendar-1:before {
+    content: "\f116";
+}
+
+.flaticon-calendar-2:before {
+    content: "\f117";
+}

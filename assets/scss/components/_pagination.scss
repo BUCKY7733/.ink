@@ -1,0 +1,110 @@
+@use '../utils' as *;
+
+// 06 PAGINATION CSS START
+
+// swiper slider dots pagination
+.bd-swiper-pagination {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    margin-bottom: 78px;
+
+    @media #{$sm,$xs} {
+        justify-content: start;
+        margin-bottom: 10px;
+    }
+
+    span {
+        height: 35px;
+        width: 35px;
+        border-radius: 50%;
+        background: transparent;
+        position: relative;
+        opacity: 1;
+
+        &::before {
+            content: "";
+            height: 8px;
+            width: 8px;
+            background: #646464;
+            border-radius: 50%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        &.swiper-pagination-bullet-active {
+            border: 2px solid var(--bd-theme-1);
+
+            &::before {
+                background-color: var(--bd-theme-1);
+            }
+        }
+    }
+}
+
+// swiper slider navigation
+
+.bd-swiper-navigation {
+    display: flex;
+    gap: 17px;
+    justify-content: end;
+    position: absolute;
+    bottom: 217px;
+    z-index: 33;
+    right: 14%;
+
+    @include rtl {
+        right: auto;
+        left: 14%;
+    }
+
+    @media #{$md} {
+        right: 20px;
+
+        @include rtl {
+            right: auto;
+            left: 20px;
+        }
+    }
+
+    @media #{$sm,$xs} {
+        justify-content: start;
+        padding-top: 28px;
+        padding-bottom: 5px;
+        right: 15px;
+
+        @include rtl {
+            right: auto;
+            left: 15px;
+        }
+    }
+
+    @media #{$xs} {
+        bottom: 20px;
+        right: 50%;
+        transform: translateX(50%);
+    }
+
+    button {
+        height: 50px;
+        width: 50px;
+        font-size: 17px;
+        text-align: center;
+        border-radius: 50%;
+        border: 1px solid var(--bd-common-white);
+        color: var(--bd-common-white);
+        opacity: .5;
+        transform: rotate(-45deg);
+
+        &:hover {
+            opacity: 1;
+            background-color: var(--bd-theme-1);
+            border-color: var(--bd-theme-1);
+            transform: rotate(0);
+        }
+    }
+}
+
+//PAGINATION CSS END

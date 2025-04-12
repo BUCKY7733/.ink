@@ -1,0 +1,130 @@
+@use '../utils' as *;
+
+//=============== 22. CONTACT CSS START HERE ================
+.bd-contact {
+
+    &-form {
+        padding: 50px 30px;
+        border: 1px solid var(--bd-grey-1);
+
+        @media #{$xs} {
+            padding: 50px 20px;
+        }
+    }
+
+    &-input {
+        .nice-select {
+            width: 100%;
+            height: 58px;
+            line-height: 58px;
+            padding: 0px 15px;
+
+            .list {
+                width: 100%;
+                border-radius: 16px;
+                border-color: var(--bd-text-body);
+
+                li {}
+            }
+
+            .option {
+                &.selected {
+                    font-weight: 500;
+                }
+
+                font-size: 16px;
+                font-weight: 400;
+            }
+        }
+
+        label {
+            display: block;
+            font-size: 16px;
+            line-height: 28px;
+            margin-bottom: 10px;
+
+            i {
+                font-size: 8px;
+                color: red;
+            }
+        }
+
+        input {
+            width: 100%;
+            height: 58px;
+            line-height: 58px;
+            padding: 0px 15px;
+            border: 1px solid var(--bd-grey-1);
+            font-size: 18px;
+            @include transition(0.3s);
+
+            &:focus {
+                border-color: var(--bd-theme-1);
+            }
+        }
+
+        textarea {
+            width: 100%;
+            height: 200px;
+            resize: none;
+            border: 1px solid var(--bd-grey-1);
+            padding: 15px;
+            line-height: 1.2;
+            @include transition(0.3s);
+
+            &:focus {
+                outline: 0;
+                border-color: var(--bd-theme-1);
+            }
+        }
+    }
+
+    &-agree {
+        gap: 13px;
+        position: relative;
+
+        label {
+            font-size: 16px;
+            line-height: 28px;
+            color: var(--bd-common-black);
+            margin-inline-start: 30px;
+        }
+
+        input {
+            accent-color: var(--bd-common-black);
+            height: 18px;
+            width: 18px;
+            border-radius: 5px;
+            position: absolute;
+            top: 6px;
+            inset-inline-start: 0;
+        }
+
+        &-btn {
+            .bd-btn {
+                color: var(--bd-common-black);
+                border-color: var(--bd-common-black);
+
+                &:hover {
+                    border-color: var(--bd-theme-1);
+                }
+            }
+        }
+
+    }
+
+    &-map {
+        height: 100%;
+        width: 100%;
+        border: 2px solid var(--bd-grey-1);
+        min-height: 400px;
+
+        iframe {
+            height: 100%;
+            width: 100%;
+            filter: grayscale(1);
+        }
+    }
+}
+
+// CONTACT CSS END HERE

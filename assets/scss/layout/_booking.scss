@@ -1,0 +1,912 @@
+@use '../utils' as *;
+
+//=============== 39. BOOKING CSS START HERE ================
+.bd-booking-form-area {
+    @media #{$md,$sm,$xs} {
+        background-color: var(--bd-theme-2);
+    }
+}
+
+.bd-booking {
+    $self: &;
+
+    &__bg {
+        position: absolute;
+        right: 0;
+        left: 0;
+        bottom: 0;
+        top: 0;
+        height: 100%;
+        width: 100%;
+        background-size: cover;
+        background-repeat: no-repeat;
+        z-index: -1;
+
+        &::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0;
+            background: var(--bd-common-black);
+            opacity: .7;
+            height: 100%;
+            width: 100%;
+        }
+    }
+
+    &__form {
+        background-color: var(--bd-common-white);
+        margin: 0 30px;
+        margin-bottom: 65px;
+        padding-top: 27px;
+
+        @media #{$xs} {
+            margin: 0;
+            margin-bottom: 65px;
+        }
+
+        &-2 {
+            background-color: var(--bd-common-white);
+            margin: 0;
+            padding-top: 27px;
+
+            &.is-dark {
+                background-color: var(--bd-common-black);
+
+                label {
+                    color: var(--bd-common-white);
+                }
+
+                input {
+                    background-color: transparent;
+                    color: var(--bd-common-white);
+
+                    @include bd-placeholder {
+                        color: var(--bd-common-white);
+                    }
+                }
+
+                .nice-select {
+                    background-color: transparent;
+
+                    &::after {
+                        color: #FFFFFF96;
+                    }
+
+                    .current {
+                        margin-inline-end: 15px;
+                        color: var(--bd-common-white);
+                    }
+                }
+
+                .bd-booking__input-date::after {
+                    color: #FFFFFF96;
+                }
+
+                .bd-booking__input-inner,
+                .bd-booking__input-single {
+                    border-color: #414141;
+                }
+
+                .bd-booking__input {
+                    &::before {
+                        background-color: #414141;
+                    }
+                }
+            }
+
+            label {
+                font-size: 16px;
+                font-weight: var(--bd-fw-bold);
+                line-height: 28px;
+                text-transform: uppercase;
+                color: var(--bd-common-black);
+            }
+
+            form {
+                display: flex;
+
+                @media #{$lg,$md,$sm,$xs} {
+                    flex-direction: column;
+                }
+            }
+        }
+
+        @media #{$xl} {
+            margin: 0;
+            margin-bottom: 65px;
+        }
+
+        &-wrap {
+            max-width: 1343px;
+            margin: 0 auto;
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+
+            @media #{$lg,$md,$sm,$xs} {
+                min-width: 100%;
+            }
+
+            @media #{$md,$sm,$xs} {
+                position: static;
+            }
+
+            &-2 {
+                width: auto;
+                position: relative;
+
+                @media #{$md,$sm,$xs} {
+                    position: static;
+                }
+            }
+        }
+
+        label {
+            font-size: 16px;
+            font-weight: var(--bd-fw-bold);
+            line-height: 28px;
+            text-transform: uppercase;
+            color: var(--bd-common-black);
+        }
+
+        form {
+            display: flex;
+
+            @media #{$lg,$md,$sm,$xs} {
+                flex-direction: column;
+            }
+        }
+    }
+
+    &__input {
+        width: 300px;
+        position: relative;
+
+        @media #{$lg} {
+            width: 100%;
+        }
+
+        &.location {
+            @media #{$xl} {
+                width: 220px;
+            }
+
+            @media #{$lg} {
+                width: 180px;
+            }
+
+            &::before {
+                content: none;
+            }
+        }
+
+        @media #{$md,$sm,$xs} {
+            width: 100%;
+        }
+
+
+        &::before {
+            content: "";
+            width: 1px;
+            height: 23px;
+            background-color: var(--bd-grey-1);
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+
+            @media #{$md,$sm,$xs} {
+                content: none;
+            }
+        }
+
+        &.input-single {
+            &::before {
+                display: none;
+            }
+        }
+
+        &-wrap {
+            display: flex;
+            gap: 80px;
+            padding: 0 50px;
+
+            @media #{$xl} {
+                gap: 40px;
+                padding: 0 30px;
+                width: calc(100% - 265px);
+                justify-content: space-between;
+            }
+
+            @media #{$lg} {
+                gap: 50px;
+                padding: 0 30px;
+                justify-content: space-between;
+            }
+
+            @media #{$md,$sm,$xs} {
+                flex-direction: column;
+                gap: 0;
+            }
+
+            @media #{$xs} {
+                padding: 0 25px;
+                ;
+            }
+
+            &-2 {
+                display: flex;
+                gap: 45px;
+                padding: 0 30px;
+
+                @media #{$xxl} {
+                    gap: 35px;
+                }
+
+                @media #{$xl} {
+                    gap: 35px;
+                    width: calc(100% - 110px);
+                    justify-content: space-between;
+                }
+
+                @media #{$lg} {
+                    gap: 30px;
+                    padding: 0 30px;
+                    justify-content: space-between;
+                }
+
+                @media #{$md,$sm,$xs} {
+                    flex-direction: column;
+                    gap: 0;
+                }
+            }
+
+        }
+
+        &-inner,
+        &-single {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 30px;
+            border-bottom: 1px solid var(--bd-grey-1);
+
+            @media #{$md,$sm,$xs} {
+                flex-direction: column;
+            }
+
+            input {
+                width: 80%;
+                height: 50px;
+                border: 0;
+
+                @media #{$xl,$lg} {
+                    font-size: 14px;
+                }
+
+                @media #{$md,$sm,$xs} {
+                    width: 100%;
+
+                    @include rtl {
+                        text-align: left;
+                    }
+                }
+
+                @include bd-placeholder {
+                    text-transform: uppercase;
+                }
+            }
+
+            .nice-select {
+                border-radius: 0px;
+                border: 0;
+                font-size: 16px;
+                height: 50px;
+                line-height: 50px;
+                padding-left: 0;
+                width: 100%;
+
+                @media #{$xl,$lg} {
+                    font-size: 14px;
+                }
+
+                .list {
+                    min-width: 100%;
+                }
+
+                .option.selected {
+                    font-weight: 600;
+                }
+
+                .current {
+                    margin-inline-end: 15px;
+
+                    @include rtl {
+                        margin-inline-end: 0px;
+                    }
+                }
+
+                &::after {
+                    right: 0;
+                }
+            }
+
+            &.location {
+
+                .nice-select {
+                    width: 100%;
+                }
+            }
+        }
+
+        &-single {
+            display: flex;
+            flex-direction: column;
+            width: 160px;
+
+            &.room-input {
+                @media #{$xl,$lg} {
+                    width: 74px;
+                }
+            }
+
+            @media #{$md,$sm,$xs} {
+                width: 100%;
+            }
+        }
+
+        &-date {
+            position: relative;
+
+            &::after {
+                content: '\f133';
+                @include transform(translateY(1px));
+                font-size: 14px;
+                color: var(--bd-common-black);
+                font-family: var(--bd-ff-fontawesome);
+                font-weight: 400;
+                margin-inline-start: 15px;
+                display: inline-block;
+                @include transition(.3s);
+                position: absolute;
+                right: 0;
+                top: 50%;
+                transform: translateY(-50%);
+
+                @media #{$md,$sm,$xs} {
+
+                    @include rtl {
+                        margin-inline-start: 0;
+                    }
+                }
+            }
+        }
+    }
+
+    &__submit {
+        width: 264px;
+        margin: 0 auto;
+        color: var(--bd-common-white);
+        position: absolute;
+        inset-inline-end: 0;
+        top: 0;
+        height: 100%;
+
+        @media #{$lg,$md,$sm,$xs} {
+            height: 70px;
+            line-height: 70px;
+            width: 100%;
+            position: static;
+        }
+
+        button {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            height: 100%;
+            font-weight: var(--bd-fw-medium);
+            background-color: var(--bd-theme-1);
+            color: var(--bd-common-black);
+            @include transition(.3s);
+            font-weight: 500;
+            font-size: 18px;
+            line-height: 36px;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+
+            i {
+                transform: rotate(-45deg);
+                @include transition(.3s);
+            }
+
+            &:hover {
+                color: var(--bd-common-white);
+                background-color: var(--bd-common-black);
+
+                i {
+                    transform: rotate(0deg);
+                }
+            }
+        }
+
+        &.is-dark {
+            button {
+                background-color: var(--bd-theme-1);
+            }
+        }
+
+        &-2 {
+            width: 150px;
+
+            @media #{$xl} {
+                width: 110px;
+            }
+
+            @media #{$lg,$md,$sm,$xs} {
+                width: 100%;
+            }
+
+            button {
+                font-size: 35px;
+            }
+        }
+    }
+}
+
+.bd-booknow {
+    &__bg {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        top: 0;
+        left: 0;
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        z-index: -1;
+
+        &::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0;
+            background: var(--bd-common-black);
+            opacity: .5;
+            height: 100%;
+            width: 100%;
+        }
+    }
+
+    &__btn {
+        display: flex;
+        justify-content: center;
+
+        .bd-btn {
+            display: inline-flex;
+            position: relative;
+            z-index: 2;
+        }
+    }
+}
+
+.bd-booking-3 {
+    background-color: var(--bd-theme-2);
+    border: 1px solid var(--bd-grey-1);
+
+    &-info {
+        background-color: var(--bd-theme-2);
+        border: 1px solid var(--bd-grey-1);
+
+        .bd-booking-3__title {
+            padding: 30px;
+            padding-bottom: 0;
+            margin-bottom: 0;
+
+            @media #{$lg} {
+                padding: 20px 15px;
+            }
+        }
+    }
+
+    &__content {
+        padding: 30px;
+        border-bottom: 1px solid var(--bd-grey-1);
+        padding-bottom: 15px;
+
+        @media #{$lg} {
+            padding: 20px 15px;
+        }
+    }
+
+    &__title {
+        font-size: 24px;
+        line-height: 32px;
+        text-transform: capitalize;
+        color: var(--bd-common-black);
+    }
+
+    &__price {
+        display: flex;
+        align-items: center;
+        gap: 30px;
+
+        @media #{$xl, $lg,$xs} {
+            display: flex;
+            align-items: start;
+            gap: 0;
+            flex-direction: column;
+        }
+
+        p {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+
+            i {
+                font-size: 22px;
+            }
+
+            span {
+                font-size: 16px;
+                line-height: 28px;
+                text-transform: capitalize;
+                color: var(--bd-common-black);
+            }
+
+            &:last-child {
+                display: flex;
+                gap: 10px;
+                align-items: baseline;
+                font-weight: 500;
+                font-size: 16px;
+                line-height: 40px;
+                text-transform: uppercase;
+                color: var(--bd-grey-3);
+
+                span {
+                    font-weight: 500;
+                    font-size: 30px;
+                    line-height: 40px;
+                    text-transform: uppercase;
+                    display: flex;
+                    gap: 10px;
+                }
+            }
+        }
+    }
+
+    &__tax {
+        p {
+            font-size: 14px;
+            line-height: 28px;
+            text-transform: capitalize;
+            color: var(--bd-grey-3);
+            display: flex;
+            gap: 30px;
+            align-items: center;
+
+            @media #{$lg,$xs} {
+                gap: 0;
+                align-items: start;
+                flex-direction: column;
+            }
+
+            span {
+                color: red;
+                display: flex;
+                align-items: center;
+                gap: 8px;
+
+            }
+        }
+    }
+
+    &__input {
+        &-wrap {
+            padding: 30px;
+        }
+
+        &-inner {
+            i {
+                position: absolute;
+                inset-inline-end: 20px;
+                top: 26%;
+                color: var(--bd-grey-3);
+            }
+        }
+
+        input {
+            height: 55px;
+            width: 100%;
+            padding: 0 20px;
+            border: 1px solid var(--bd-grey-1);
+            background-color: var(--bd-common-white);
+            font-size: 14px;
+            line-height: 28px;
+            text-transform: capitalize;
+            margin-bottom: 20px;
+
+            &::placeholder {
+                color: var(--bd-grey-3);
+            }
+        }
+
+        label {
+            font-weight: 500;
+            font-size: 16px;
+            line-height: 28px;
+            text-transform: capitalize;
+            color: var(--bd-common-black);
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .nice-select {
+            width: 100%;
+            height: 55px;
+            border-radius: 0;
+            border: 1px solid var(--bd-grey-1);
+            line-height: 55px;
+            font-size: 16px;
+
+            .list {
+                width: 100%;
+                border-radius: 0;
+            }
+
+            .option {
+                &.selected {
+                    font-weight: 500;
+                }
+            }
+        }
+    }
+
+    &__list {
+        padding: 30px;
+
+        @media #{$lg} {
+            padding: 20px 15px;
+        }
+
+        ul {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+
+            li {
+                display: flex;
+                gap: 10px;
+                align-items: center;
+                font-size: 16px;
+                line-height: 28px;
+                text-transform: capitalize;
+                color: var(--bd-common-black);
+
+                i {
+                    font-size: 20px;
+                    color: var(--bd-theme-1);
+                }
+            }
+        }
+    }
+
+    &__submit {
+        button {
+            height: 80px;
+            text-align: center;
+            width: 100%;
+            background: var(--bd-common-black);
+            color: var(--bd-common-white);
+            display: flex;
+            align-items: center;
+            line-height: 80px;
+            gap: 10px;
+            justify-content: center;
+
+            &:hover {
+                color: var(--bd-common-black);
+                background: var(--bd-theme-1);
+
+                i {
+                    transform: rotate(0);
+                }
+            }
+
+            i {
+                @include transition(.3s);
+                transform: rotate(-45deg);
+            }
+        }
+    }
+}
+
+.bd-booking-4 {
+    &__form {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-column-gap: 15px;
+
+        @media #{$xs} {
+            display: flex;
+            flex-direction: column;
+        }
+    }
+
+    &__input {
+        position: relative;
+
+        .bd-nice-select {
+            .list {
+                .option {
+                    &:hover {
+                        background: var(--bd-theme-1);
+                    }
+                }
+
+                .selected,
+                .focus {
+                    background: var(--bd-theme-1);
+                }
+            }
+        }
+
+        textarea,
+        input {
+            width: 100%;
+            height: 60px;
+            border: 1px solid var(--bd-grey-1);
+            padding-left: 20px;
+            padding-right: 40px;
+            outline: none;
+
+            &::placeholder {
+                color: #656565;
+                font-size: 16px;
+                opacity: 1;
+            }
+
+            &:focus {
+                border-color: var(--bd-theme-1);
+            }
+        }
+
+        textarea {
+            height: 150px;
+            padding-top: 15px;
+        }
+
+        &.message {
+            grid-column: span 2;
+        }
+
+        i {
+            position: absolute;
+            top: 50%;
+            right: 20px;
+            transform: translateY(-50%);
+        }
+
+        .nice-select {
+            background-color: transparent;
+            color: #000;
+            width: 100%;
+            border: 1px solid #e8e8e8;
+            height: 60px;
+            border-radius: 0;
+            font-size: 16px;
+
+            &:focus {
+                border-color: var(--bd-theme-1);
+            }
+
+            span {
+                color: var(--bd-theme-1);
+                font-weight: 400;
+                line-height: 60px;
+                height: 60px;
+                display: inline-block;
+                color: var(--bd-common-black);
+            }
+
+            .list {
+                width: 100%;
+            }
+
+            .option {
+                &.selected {
+                    font-weight: 500;
+                }
+            }
+        }
+    }
+}
+
+.bd-booking-sidebar {
+    padding: 30px;
+    border: 1px solid var(--bd-grey-1);
+}
+
+
+.bd-booking__form-3 {
+    background: var(--bd-common-white);
+    padding: 40px;
+    position: relative;
+    z-index: 1;
+    width: 900px;
+
+    @media #{$md} {
+        width: 700px;
+    }
+
+    @media #{$sm,$xs} {
+        width: 100%;
+    }
+
+    form {
+        display: flex;
+        gap: 60px;
+        position: relative;
+        z-index: 2;
+
+        @media #{$md,$sm,$xs} {
+            flex-direction: column;
+        }
+    }
+
+
+    .bd-booking__input {
+        &::before {
+            content: "";
+            width: 1px;
+            height: 100%;
+            background-color: var(--bd-grey-1);
+            position: absolute;
+            inset-inline-end: -30px;
+            top: 50%;
+            transform: translateY(-50%);
+            inset-inline-start: auto;
+
+            @media #{$md,$sm,$xs} {
+                width: 100%;
+                height: 1px;
+                top: 100%;
+                transform: translateY(30px);
+                inset-inline-end: 0;
+            }
+        }
+    }
+
+    .bd-booking__input-date {
+        input {
+            width: 100%;
+            border: none;
+            height: 40px;
+
+        }
+
+        &::after {
+            content: "\f133";
+            position: absolute;
+            bottom: 8px;
+            inset-inline-end: 0;
+        }
+    }
+
+    .bd-booking__input-person {
+        input {
+            width: 100%;
+            border: none;
+            height: 40px;
+
+        }
+    }
+
+    button {
+        height: 100%;
+    }
+
+}

@@ -1,0 +1,289 @@
+@use '../utils' as *;
+
+// ============== 29. OFFER CSS START HERE ===============
+
+.bd-offer {
+    $self: &;
+    overflow: hidden;
+    position: relative;
+
+    &:hover {
+        .bd-offer {
+            &__title {
+                &::before {
+                    opacity: 1;
+                    visibility: visible;
+                }
+            }
+
+            &__thumb {
+                >img {
+                    transform: scale(1.1);
+                }
+
+                .bd-offer {
+                    &__content {
+                        bottom: 0;
+                        transition: .3s;
+                        opacity: 1;
+                        visibility: visible;
+                    }
+                }
+            }
+
+            &__content-visble {
+                opacity: 0;
+                visibility: hidden;
+            }
+        }
+    }
+
+    &__thumb {
+        width: 100%;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            @include transition(.5s);
+        }
+    }
+
+    &__meta {
+        position: absolute;
+        top: 30px;
+        inset-inline-start: 30px;
+
+        span {
+            font-weight: var(--bd-fw-sbold);
+            font-size: 18px;
+            line-height: 36px;
+            text-align: center;
+            text-transform: capitalize;
+            color: var(--bd-theme-1);
+            background-color: var(--bd-common-black);
+            padding: 0 10px;
+            height: 36px;
+            display: inline-block;
+            border-radius: 50px;
+        }
+    }
+
+    &__content {
+        border: 1px solid var(--bd-grey-1);
+        border-top: 0;
+        text-align: center;
+        background: var(--bd-theme-2);
+        @include transition(.4s);
+        position: absolute;
+        bottom: 0px;
+        opacity: 0;
+        visibility: hidden;
+
+        @media (hover:none) {
+            position: static;
+            opacity: 1;
+            visibility: visible;
+        }
+
+        p {
+            padding: 0 35px;
+
+            @media #{$xl} {
+                padding: 0 20px;
+            }
+        }
+    }
+
+    &__title {
+        text-transform: capitalize;
+        position: relative;
+        padding: 20px 35px;
+
+        @media #{$xl} {
+            padding: 20px 20px;
+        }
+
+        &::before {
+            content: "";
+            width: 60px;
+            height: 3px;
+            background: var(--bd-theme-1);
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            opacity: 0;
+            @include transition(.5s);
+            visibility: hidden;
+        }
+
+        a {
+            &:hover {
+                color: var(--bd-theme-1);
+            }
+        }
+
+    }
+
+    &__btn {
+        height: 60px;
+        border-top: 1px solid var(--bd-grey-1);
+        @include transition(0.3s);
+
+        &:hover {
+            background: var(--bd-theme-1);
+        }
+
+        a {
+            font-weight: 500;
+            font-size: 16px;
+            line-height: 60px;
+            color: var(--bd-common-black);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            justify-content: center;
+        }
+    }
+}
+
+.bd-offer__content-visble {
+    border: 1px solid #ddd;
+    @include transition(.5s);
+    text-align: center;
+    text-transform: capitalize;
+
+    @media (hover:none) {
+        display: none;
+    }
+}
+
+.bd-offer__title-2 {
+    margin-bottom: 0;
+    padding: 10px;
+}
+
+.bd-offer-details {
+    &-area {
+        .swiper-container {
+            overflow: visible;
+        }
+    }
+
+    &__title {
+        font-size: 36px;
+        text-transform: capitalize;
+
+        @media #{$xs} {
+            font-size: 30px;
+        }
+    }
+
+    &__widget {
+        border-bottom: 1px solid var(--bd-grey-1);
+    }
+
+    &__list {
+        &-2 {
+            ul {
+                list-style-type: none;
+
+                li {
+                    font-size: 16px;
+                    line-height: 28px;
+                    text-transform: capitalize;
+                    color: #393939;
+                }
+            }
+        }
+
+        ul {
+            display: grid;
+            grid-template-columns: repeat(3, 240px);
+            list-style: none;
+            row-gap: 10px;
+
+            @media #{$lg} {
+                grid-template-columns: repeat(3, 215px);
+            }
+
+            @media #{$sm,$xs} {
+                grid-template-columns: 1fr;
+            }
+
+            li {
+                display: flex;
+                gap: 10px;
+                align-items: center;
+                font-size: 16px;
+                line-height: 28px;
+                text-transform: capitalize;
+                color: var(--bd-common-black);
+
+                i {
+                    font-size: 20px;
+                    color: var(--bd-theme-1);
+                }
+            }
+        }
+    }
+
+    &__thumb {
+        img {
+            width: 100%;
+        }
+    }
+}
+
+.bd-offer-navigation {
+    button {
+        min-height: 64px;
+        min-width: 64px;
+        border: 1px solid var(--bd-common-white);
+        position: absolute;
+        inset-inline-start: 60px;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 1;
+        color: var(--bd-common-white);
+        border-radius: 50%;
+        display: inline-block;
+        line-height: 64px;
+
+        &:hover {
+            background-color: var(--bd-theme-1);
+            border-color: var(--bd-theme-1);
+        }
+
+        @media #{$xs} {
+            min-height: 45px;
+            min-width: 45px;
+            line-height: 45px;
+            inset-inline-start: 10px;
+        }
+
+        &.bd-offerdetails-next {
+            inset-inline-start: auto;
+            inset-inline-end: 60px;
+
+            @media #{$xs} {
+                inset-inline-end: 10px;
+            }
+        }
+    }
+}
+
+
+.bd-offer-slider-nav {
+    display: flex;
+    gap: 10px;
+
+    .square-nav {
+        border-color: var(--bd-text-body);
+
+        &:hover {
+            border-color: var(--bd-theme-1);
+        }
+    }
+}

@@ -1,0 +1,62 @@
+@use '../utils' as *;
+
+// ============== 27. REEL CSS START HERE ==============
+
+.bd-reel-area {
+    min-height: 558px;
+
+    @media #{$sm, $xs} {
+        min-height: 320px;
+    }
+
+    &:hover {
+        .bd-reel__play-btn {
+            img {
+                animation: rotate-infinite-2 15s linear infinite;
+            }
+        }
+    }
+}
+
+.bd-reel {
+    &__bg {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        top: 0;
+        left: 0;
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+
+        &::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0;
+            background: var(--bd-common-black);
+            opacity: .6;
+            height: 100%;
+            width: 100%;
+        }
+    }
+
+    &__play-btn {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+
+        a {
+            position: absolute;
+            color: var(--bd-common-white);
+            height: 100%;
+            top: 0;
+            left: 0;
+            right: 0;
+            text-align: center;
+            padding-top: 70px;
+            font-size: 35px;
+        }
+    }
+}

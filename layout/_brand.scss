@@ -1,0 +1,22 @@
+@use '../utils' as *;
+
+// =============== 34. BRAND CSS START ===============
+.bd-brand {
+    &__thumb {
+        &-wrap {
+            @media #{$md,$sm} {
+                display: grid !important;
+                grid-template-columns: repeat(3, 1fr);
+                justify-content: center;
+                gap: 60px;
+            }
+
+            @media #{$xs} {
+                display: grid !important;
+                grid-template-columns: repeat(2, 1fr);
+                justify-content: center;
+                gap: 60px 20px;
+            }
+        }
+    }
+}
